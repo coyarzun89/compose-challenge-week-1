@@ -43,7 +43,7 @@ object FakeDogRepository {
                 id="5",
                 name="Thunder",
                 gender=Gender.MALE,
-                age="5 years",
+                age="5 months",
                 photoUrl = "https://images.unsplash.com/photo-1583511655857-d19b40a7a54e?ixid=MXwxMjA3fDB8MHxzZWFyY2h8MXx8ZG9nfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=40"
             )
         )
@@ -71,7 +71,7 @@ object FakeDogRepository {
                 id="8",
                 name="Al",
                 gender=Gender.MALE,
-                age="5 years",
+                age="1 year",
                 photoUrl = "https://images.unsplash.com/photo-1549291981-56d443d5e2a2?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NTh8fGRvZ3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=40"
             )
         )
@@ -80,7 +80,7 @@ object FakeDogRepository {
                 id="9",
                 name="Eve",
                 gender=Gender.FEMALE,
-                age="5 years",
+                age="7 months",
                 photoUrl = "https://images.unsplash.com/photo-1509005084666-3cbc75184cbb?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NDJ8fGRvZ3xlbnwwfHwwfA%3D%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=40"
             )
         )
@@ -89,7 +89,7 @@ object FakeDogRepository {
                 id="10",
                 name="Pep",
                 gender=Gender.MALE,
-                age="5 years",
+                age="9 months",
                 photoUrl = "https://images.unsplash.com/photo-1583512603805-3cc6b41f3edb?ixid=MXwxMjA3fDB8MHxzZWFyY2h8NXx8ZG9nfGVufDB8fDB8&ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=40"
             )
         )

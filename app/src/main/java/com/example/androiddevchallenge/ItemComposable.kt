@@ -43,6 +43,7 @@ fun GridItem(imageUrl: String, name: String, age: String, gender: Gender, onClic
                     modifier = Modifier
                         .width(200.dp)
                         .height(200.dp)
+                        .clickable(false, onClick = { })
                 )
                 Spacer(Modifier.height(8.dp))
                 val padding = Modifier.padding(horizontal = 8.dp)

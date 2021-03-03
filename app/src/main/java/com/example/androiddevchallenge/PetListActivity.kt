@@ -15,6 +15,7 @@
  */
 package com.example.androiddevchallenge
 
+import android.content.Intent
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
@@ -31,69 +32,77 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.androiddevchallenge.PetDetailsActivity.Companion.DOG_SELECTED
 import com.example.androiddevchallenge.data.Dog
 import com.example.androiddevchallenge.data.FakeDogRepository
 import com.example.androiddevchallenge.ui.theme.MyTheme
 
-class MainActivity : AppCompatActivity() {
+class PetListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContent {
             MyTheme {
-                MyApp()
+                PetListView()
             }
         }
     }
-}
 
-@Composable
-fun HachikoIcon() {
-    Icon(
-        painter = painterResource(id = R.drawable.ic_hachiko),
-        contentDescription = null // decorative element
-    )
-}
-
-@Composable
-fun MyApp() {
-    Column {
-        TopAppBar(
-            title = { Text(text = "Adopt a pet") },
-            navigationIcon = {
-                IconButton(onClick = { }) {
-                    HachikoIcon()
-                }
-            },
-            elevation=4.dp
+    @Composable
+    fun HachikoIcon() {
+        Icon(
+            painter = painterResource(id = R.drawable.ic_hachiko),
+            contentDescription = null // decorative element
         )
-        DoggyGrid(dogs = FakeDogRepository.dogList)
     }
-}
 
-@OptIn(ExperimentalFoundationApi::class)
-@Composable
-fun DoggyGrid(dogs: List<Dog>) {
-    LazyVerticalGrid(
-        cells = GridCells.Adaptive(minSize = 200.dp)
-    ) {
-        items(dogs) { dog ->
-            GridItem(dog, { })
+    @Composable
+    fun PetListView() {
+        Column {
+            TopAppBar(
+                title = { Text(text = "Adopt a pet") },
+                navigationIcon = {
+                    IconButton(onClick = { }) {
+                        HachikoIcon()
+                    }
+                },
+                elevation = 4.dp
+            )
+            DoggyGrid(dogs = FakeDogRepository.dogList)
         }
     }
-}
 
-@Preview("Light Theme", widthDp = 360, heightDp = 640)
-@Composable
-fun LightPreview() {
-    MyTheme {
-        MyApp()
+    @OptIn(ExperimentalFoundationApi::class)
+    @Composable
+    fun DoggyGrid(dogs: List<Dog>) {
+        LazyVerticalGrid(
+            cells = GridCells.Adaptive(minSize = 200.dp)
+        ) {
+            items(dogs) { dog ->
+                GridItem(dog) { onGridItemClick(dog) }
+            }
+        }
     }
-}
 
-@Preview("Dark Theme", widthDp = 360, heightDp = 640)
-@Composable
-fun DarkPreview() {
-    MyTheme(darkTheme = true) {
-        MyApp()
+    private fun onGridItemClick(dog: Dog) {
+        startActivity(
+            Intent(this, PetDetailsActivity::class.java)
+                .putExtra(DOG_SELECTED, dog)
+        )
+    }
+
+    @Preview("Light Theme", widthDp = 360, heightDp = 640)
+    @Composable
+    fun PetListLightPreview() {
+        MyTheme {
+            PetListView()
+        }
+    }
+
+    @Preview("Dark Theme", widthDp = 360, heightDp = 640)
+    @Composable
+    fun PetListDarkPreview() {
+        MyTheme(darkTheme = true) {
+            PetListView()
+        }
     }
 }
