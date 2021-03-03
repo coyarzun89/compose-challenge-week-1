@@ -19,8 +19,18 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
-import androidx.compose.foundation.layout.*
-import androidx.compose.material.*
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.ExtendedFloatingActionButton
+import androidx.compose.material.FloatingActionButtonDefaults
+import androidx.compose.material.Icon
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -101,8 +111,8 @@ class PetDetailsActivity : AppCompatActivity() {
 
             Text(
                 text = "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod " +
-                        "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim " +
-                        "veniam, quis nostrud exercitation ullamco.",
+                    "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim " +
+                    "veniam, quis nostrud exercitation ullamco.",
                 style = TextStyle(
                     fontWeight = FontWeight.Normal,
                     fontSize = 18.sp,
@@ -113,20 +123,24 @@ class PetDetailsActivity : AppCompatActivity() {
             )
 
             ExtendedFloatingActionButton(
-                modifier=Modifier.padding(vertical = 16.dp, horizontal = 48.dp)
+                modifier = Modifier.padding(vertical = 16.dp, horizontal = 48.dp)
                     .fillMaxWidth(1f).height(60.dp),
-                backgroundColor=MaterialTheme.colors.primary,
-                icon = { Icon(
-                    painter = painterResource(id = R.drawable.ic_pets),
-                    contentDescription = null,
-                    tint = Color(0xFFFFFFFF),
-                    modifier = Modifier.size(32.dp)
-                ) },
-                text = { Text(
-                    text="Adopt me",
-                    style=MaterialTheme.typography.h6,
-                    color = Color.White,
-                ) },
+                backgroundColor = MaterialTheme.colors.primary,
+                icon = {
+                    Icon(
+                        painter = painterResource(id = R.drawable.ic_pets),
+                        contentDescription = null,
+                        tint = Color(0xFFFFFFFF),
+                        modifier = Modifier.size(32.dp)
+                    )
+                },
+                text = {
+                    Text(
+                        text = "Adopt me",
+                        style = MaterialTheme.typography.h6,
+                        color = Color.White,
+                    )
+                },
                 onClick = { showLoveToast() },
                 elevation = FloatingActionButtonDefaults.elevation(8.dp)
             )
